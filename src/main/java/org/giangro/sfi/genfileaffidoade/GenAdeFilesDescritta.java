@@ -36,17 +36,17 @@ public class GenAdeFilesDescritta extends GenAdeFiles {
             = "yyyyMMdd";
     final static String DEFAULT_DATE
             = "19700101";
-    
+
     @PostConstruct
-    void init() {    
+    void init() {
     }
 
     @Override
     public void generate() throws Exception {
-        logger.info("generating ADERS Descritta");
-        logConfParams();     
+        logger.info("generating ADE Descritta");
+        logConfParams();
     }
-    
+
     private String[] splitElem(String value) {
         String[] array;
         array = value.split(GenAdeFilesDescritta.SEP_CONF, -1);
@@ -77,7 +77,7 @@ public class GenAdeFilesDescritta extends GenAdeFiles {
     }
 
     private String getNewFileName() {
-        StringBuilder newfilename = new StringBuilder();        
+        StringBuilder newfilename = new StringBuilder();
         return newfilename.toString();
     }
 
@@ -86,7 +86,14 @@ public class GenAdeFilesDescritta extends GenAdeFiles {
         if (logConfParams.equals(Boolean.FALSE)) {
             return;
         } // if
-        else {
+        else {            
+            logger.debug("template file: \"" + templateFileDescr + "\"");
+            logger.debug("destination path: \"" + destinationPath + "\"");
+            logger.debug("filler_char: \"" + fillerChar + "\"");           
+            logger.debug("cod_ade: \"" + codAde + "\"");
+            logger.debug("cod_forn: \"" + codForn + "\"");            
+            logger.debug("date_format: \"" + dateFormat + "\"");
+            logger.debug("date_format_filename: \"" + dateFormatFileName + "\"");
             return;
         } // else   
     }
@@ -95,7 +102,7 @@ public class GenAdeFilesDescritta extends GenAdeFiles {
     Boolean logConfParams;
 
     @Value("${filler_char}")
-    private String fillerChar;    
+    private String fillerChar;
 
     @Value("${template_file_descr}")
     private String templateFileDescr;
@@ -108,5 +115,11 @@ public class GenAdeFilesDescritta extends GenAdeFiles {
 
     @Value("${date_format_filename}")
     private String dateFormatFileName;
+
+    @Value("${cod_ade}")
+    private String codAde;
+
+    @Value("${cod_forn}")
+    private String codForn;
 
 } // class GenAdeFilesDescritta

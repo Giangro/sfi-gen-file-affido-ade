@@ -23,9 +23,9 @@ import org.kohsuke.args4j.Option;
  */
 @ComponentScan(basePackages = "org.giangro.sfi")
 @Configuration
-@PropertySource("classpath:gen_adersfiles.properties")
-@PropertySource("classpath:gen_adersfiles_descr.properties")
-@PropertySource("classpath:gen_adersfiles_indescr.properties")
+@PropertySource("classpath:gen_adefiles.properties")
+@PropertySource("classpath:gen_adefiles_descr.properties")
+@PropertySource("classpath:gen_adefiles_indescr.properties")
 public class App {
 
     final static Logger logger

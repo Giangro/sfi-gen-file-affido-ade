@@ -135,7 +135,7 @@
                         <manifest>
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>org.giangro.sfi.genfileaffidoaders.App</mainClass>
+                            <mainClass>org.giangro.sfi.genfileaffidoade.App</mainClass>
                         </manifest>
                         <manifestEntries>
                             <Class-Path>. conf/</Class-Path>
