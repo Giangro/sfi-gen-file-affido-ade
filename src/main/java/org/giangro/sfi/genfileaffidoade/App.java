@@ -26,6 +26,7 @@ import org.kohsuke.args4j.Option;
 @PropertySource("classpath:gen_adefiles.properties")
 @PropertySource("classpath:gen_adefiles_descr.properties")
 @PropertySource("classpath:gen_adefiles_indescr.properties")
+@PropertySource("classpath:gen_adefiles_sintetica.properties")
 public class App {
 
     final static Logger logger
@@ -33,6 +34,7 @@ public class App {
 
     final static String FILE_TYPE_DESCRITTA = "D";
     final static String FILE_TYPE_INDESCRITTA = "I";
+    final static String FILE_TYPE_SINTETICA = "S";
     final static String FILE_TYPE_DEFAULT = FILE_TYPE_DESCRITTA;
 
     public static void main(String[] args) {
@@ -79,17 +81,22 @@ public class App {
                 this.genAdeFilesIndescritta
                         .generate();
             } //if
-            else {
+            else if (FILE_TYPE_DESCRITTA.equals(type)) {
                 this.genAdeFilesDescritta
                         .generate();
-            } // else 
+            } // else if
+            else {
+                this.GenAdeFilesSintetica
+                        .generate();
+
+            }
         } // try
         catch (Exception ex) {
             logger.error(ex.getLocalizedMessage());
         } // catch
     }
 
-    @Option(name = "-t", aliases = "--type", usage = "D=descritta,I=indescritta", required = false)
+    @Option(name = "-t", aliases = "--type", usage = "D=descritta,I=indescritta,S=sintetica", required = false)
     private String type;
 
     @Value("${version}")
@@ -97,8 +104,11 @@ public class App {
 
     @Autowired
     private GenAdeFilesDescritta genAdeFilesDescritta;
-    
+
     @Autowired
     private GenAdeFilesIndescritta genAdeFilesIndescritta;
+    
+    @Autowired
+    private GenAdeFilesSintetica GenAdeFilesSintetica;
 
 } // class App
