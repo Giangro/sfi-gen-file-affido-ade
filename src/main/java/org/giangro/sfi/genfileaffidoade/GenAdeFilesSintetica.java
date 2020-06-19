@@ -61,7 +61,7 @@ public class GenAdeFilesSintetica extends GenAdeFiles {
 
     final static String HEADER_TYPE_TAG
             = "HEADER_TYPE";
-    
+
     final static String ID_FLUSSO_TAG
             = "ID_FLUSSO";
 
@@ -70,79 +70,148 @@ public class GenAdeFilesSintetica extends GenAdeFiles {
 
     final static String MITTENTE_FLUSSO_TAG
             = "MITTENTE_FLUSSO";
-    
+
     final static String DATA_CREAZIONE_FLUSSO_TAG
             = "DATA_CREAZIONE_FLUSSO";
-    
+
     final static String DESTINATARIO_FLUSSO_TAG
             = "DESTINATARIO_FLUSSO";
-    
+
     final static String TIPO_FLUSSO_TAG
             = "TIPO_FLUSSO";
-    
+
     final static String CODICE_IDENTIFICATIVO_GARA_TAG
             = "CODICE_IDENTIFICATIVO_GARA";
-    
+
     final static String DENOMINAZIONE_COMMITTENTE_TAG
             = "DENOMINAZIONE_COMMITTENTE";
-    
+
     final static String CF_COMMITTENTE_TAG
             = "CF_COMMITTENTE";
-    
+
     final static String NUMERO_CONTRATTO_TAG
             = "NUMERO_CONTRATTO";
-    
+
     final static String RESPONSABILE_TAG
             = "RESPONSABILE";
-    
+
     final static String RESPONSABILE_TYPE_TAG
             = "RESPONSABILE_TYPE";
-    
+
     final static String NOMINATIVO_TAG
             = "NOMINATIVO";
-    
+
     final static String TELEFONO_TAG
             = "TELEFONO";
 
     final static String CELLULARE_TAG
             = "CELLULARE";
-    
+
     final static String EMAIL_TAG
             = "EMAIL";
-    
-    final static String MORE_INFO_TAG
-            = "MORE_INFO";
-    
+
     final static String NUMERO_ORDINE_TAG
             = "NUMERO_ORDINE";
-    
+
     final static String DATA_ORDINE_TAG
             = "DATA_ORDINE";
-    
+
     final static String NUM_TOT_DISTINTE_TAG
             = "NUM_TOT_DISTINTE";
-    
+
     final static String NUM_TOT_DOCUMENTI_TAG
             = "NUM_TOT_DOCUMENTI";
-    
+
     final static String FLAG_PICCO_TAG
             = "FLAG_PICCO";
-    
+
     final static String CODICE_RECAPITISTA_TAG
             = "CODICE_RECAPITISTA";
-    
+
     final static String CODICE_STAMPATORE_TAG
             = "CODICE_STAMPATORE";
-    
+
     final static String DATA_SPEDIZIONE_TAG
             = "DATA_SPEDIZIONE";
-    
+
     final static String CODICE_PRENOTAZIONE_TAG
             = "CODICE_PRENOTAZIONE";
-    
+
     final static String NOTE_TAG
             = "NOTE";
-        
+
+    final static String DISTINTE_TAG
+            = "DISTINTE";
+
+    final static String DISTINTA_TYPE_TAG
+            = "DISTINTA_TYPE";
+
+    final static String ID_DISTINTA_TAG
+            = "ID_DISTINTA";
+
+    final static String TIPO_DISTINTA_TAG
+            = "TIPO_DISTINTA";
+
+    final static String LUOGO_CONSEGNA_TAG
+            = "LUOGO_CONSEGNA";
+
+    final static String CODICE_IPA_CDC_TAG
+            = "CODICE_IPA_CDC";
+
+    final static String DENOMINAZIONE_CDC_TAG
+            = "DENOMINAZIONE_CDC";
+
+    final static String CODICE_AMBITO_TAG
+            = "CODICE_AMBITO";
+
+    final static String TIPO_MODELLO_TAG
+            = "TIPO_MODELLO";
+
+    final static String INDIRIZZO_RITORNO_TAG
+            = "INDIRIZZO_RITORNO";
+
+    final static String INDIRIZZO_TYPE_TAG
+            = "INDIRIZZO_TYPE";
+
+    final static String RIGA1_TAG
+            = "RIGA1";
+
+    final static String RIGA2_TAG
+            = "RIGA2";
+
+    final static String RIGA3_TAG
+            = "RIGA3";
+
+    final static String RIGA4_TAG
+            = "RIGA4";
+
+    final static String RIGA5_TAG
+            = "RIGA5";
+
+    final static String CAP_TAG
+            = "CAP";
+
+    final static String STATO_ESTERO_TAG
+            = "STATO_ESTERO";
+
+    final static String TIPO_SPEDIZIONE_TAG
+            = "TIPO_SPEDIZIONE";
+
+    final static String CODICE_PRODOTTO_FORNITORE_TAG
+            = "CODICE_PRODOTTO_FORNITORE";
+
+    final static String CODICE_LOTTO_TERRITORIALE_TAG
+            = "CODICE_LOTTO_TERRITORIALE";
+
+    final static String NUM_DOCUMENTI_DISTINTA_TAG
+            = "NUM_DOCUMENTI_DISTINTA";
+
+    final static String FLAG_COPERTURA_CAP_TAG
+            = "FLAG_COPERTURA_CAP";
+
+    final static String MORE_INFO_TAG
+            = "MORE_INFO";
+
     @PostConstruct
     void init() {
     }
@@ -172,207 +241,199 @@ public class GenAdeFilesSintetica extends GenAdeFiles {
             Element headerTypeElement;
             headerTypeElement = doc.createElement(GenAdeFilesSintetica.HEADER_TYPE_TAG);
             headElement.appendChild(headerTypeElement);
-            
+
             // id flusso
-            
             Element idFlussoElement;
             idFlussoElement = doc.createElement(GenAdeFilesSintetica.ID_FLUSSO_TAG);
             idFlussoElement.appendChild(doc.createTextNode(idFlusso));
             headerTypeElement.appendChild(idFlussoElement);
-            
+
             // nome flusso
-            
             Element nomeFlussoElement;
             nomeFlussoElement = doc.createElement(GenAdeFilesSintetica.NOME_FLUSSO_TAG);
             nomeFlussoElement.appendChild(doc.createTextNode(nomeFlusso));
             headerTypeElement.appendChild(nomeFlussoElement);
 
             // mittente flusso
-            
             Element mittenteFlussoElement;
             mittenteFlussoElement = doc.createElement(GenAdeFilesSintetica.MITTENTE_FLUSSO_TAG);
             mittenteFlussoElement.appendChild(doc.createTextNode(mittenteFlusso));
             headerTypeElement.appendChild(mittenteFlussoElement);
 
             // data creazione flusso
-            
             Element dataCreazioneFlussoElement;
             dataCreazioneFlussoElement = doc.createElement(GenAdeFilesSintetica.DATA_CREAZIONE_FLUSSO_TAG);
             dataCreazioneFlussoElement.appendChild(doc.createTextNode(dataCreazioneFlusso));
             headerTypeElement.appendChild(dataCreazioneFlussoElement);
 
             // destinatario flusso
-            
             Element destinatarioFlussoElement;
             destinatarioFlussoElement = doc.createElement(GenAdeFilesSintetica.DESTINATARIO_FLUSSO_TAG);
             destinatarioFlussoElement.appendChild(doc.createTextNode(destinatarioFlusso));
             headerTypeElement.appendChild(destinatarioFlussoElement);
 
             // tipo flusso
-            
             Element tipoFlussoElement;
             tipoFlussoElement = doc.createElement(GenAdeFilesSintetica.TIPO_FLUSSO_TAG);
             tipoFlussoElement.appendChild(doc.createTextNode(tipoFlusso));
             headerTypeElement.appendChild(tipoFlussoElement);
 
             // codice identificativo gara
-            
             Element codiceIdentificativoGaraElement;
             codiceIdentificativoGaraElement = doc.createElement(GenAdeFilesSintetica.CODICE_IDENTIFICATIVO_GARA_TAG);
             codiceIdentificativoGaraElement.appendChild(doc.createTextNode(codiceIdentificativoGara));
             headerTypeElement.appendChild(codiceIdentificativoGaraElement);
-            
+
             // denominazione committente
-            
             Element denominazioneCommittenteElement;
             denominazioneCommittenteElement = doc.createElement(GenAdeFilesSintetica.DENOMINAZIONE_COMMITTENTE_TAG);
             denominazioneCommittenteElement.appendChild(doc.createTextNode(denominazioneCommittente));
             headerTypeElement.appendChild(denominazioneCommittenteElement);
-            
+
             // cf committente
-            
             Element cfCommittenteElement;
             cfCommittenteElement = doc.createElement(GenAdeFilesSintetica.CF_COMMITTENTE_TAG);
             cfCommittenteElement.appendChild(doc.createTextNode(cfCommittente));
             headerTypeElement.appendChild(cfCommittenteElement);
-            
+
             // numero contratto
-            
             Element numeroContrattoElement;
             numeroContrattoElement = doc.createElement(GenAdeFilesSintetica.NUMERO_CONTRATTO_TAG);
             numeroContrattoElement.appendChild(doc.createTextNode(numeroContratto));
             headerTypeElement.appendChild(numeroContrattoElement);
-            
+
             // responsabile
-            
             Element responsabileElement;
-            responsabileElement = doc.createElement(GenAdeFilesSintetica.RESPONSABILE_TAG);            
+            responsabileElement = doc.createElement(GenAdeFilesSintetica.RESPONSABILE_TAG);
             headerTypeElement.appendChild(responsabileElement);
-            
+
             // responsabile type
-            
             Element responsabileTypeElement;
-            responsabileTypeElement = doc.createElement(GenAdeFilesSintetica.RESPONSABILE_TYPE_TAG);            
+            responsabileTypeElement = doc.createElement(GenAdeFilesSintetica.RESPONSABILE_TYPE_TAG);
             responsabileElement.appendChild(responsabileTypeElement);
-            
+
             // responsabile nominativo
-            
             Element responsabileNominativoElement;
             responsabileNominativoElement = doc.createElement(GenAdeFilesSintetica.NOMINATIVO_TAG);
             responsabileNominativoElement.appendChild(doc.createTextNode(responsabileNominativo));
             responsabileTypeElement.appendChild(responsabileNominativoElement);
-            
+
             // responsabile telefono
-            
             Element responsabileTelefonoElement;
             responsabileTelefonoElement = doc.createElement(GenAdeFilesSintetica.TELEFONO_TAG);
             responsabileTelefonoElement.appendChild(doc.createTextNode(responsabileTelefono));
             responsabileTypeElement.appendChild(responsabileTelefonoElement);
 
             // responsabile cellulare
-            
             Element responsabileCellulareElement;
             responsabileCellulareElement = doc.createElement(GenAdeFilesSintetica.CELLULARE_TAG);
             responsabileCellulareElement.appendChild(doc.createTextNode(responsabileCellulare));
             responsabileTypeElement.appendChild(responsabileCellulareElement);
 
             // responsabile email
-            
             Element responsabileEMailElement;
             responsabileEMailElement = doc.createElement(GenAdeFilesSintetica.EMAIL_TAG);
             responsabileEMailElement.appendChild(doc.createTextNode(responsabileEmail));
             responsabileTypeElement.appendChild(responsabileEMailElement);
 
             // more info
-            
             Element moreInfoElement;
             moreInfoElement = doc.createElement(GenAdeFilesSintetica.MORE_INFO_TAG);
             moreInfoElement.appendChild(doc.createTextNode(moreInfo));
             headerTypeElement.appendChild(moreInfoElement);
-            
+
             // numero ordine
-            
             Element numeroOrdineElement;
             numeroOrdineElement = doc.createElement(GenAdeFilesSintetica.NUMERO_ORDINE_TAG);
             numeroOrdineElement.appendChild(doc.createTextNode(numeroOrdine));
             rootElement.appendChild(numeroOrdineElement);
-            
+
             // data ordine
-            
             Element dataOrdineElement;
             dataOrdineElement = doc.createElement(GenAdeFilesSintetica.DATA_ORDINE_TAG);
             dataOrdineElement.appendChild(doc.createTextNode(dataOrdine));
             rootElement.appendChild(dataOrdineElement);
-            
+
             // num tot distinte
-            
             Element numTotDistinteElement;
             numTotDistinteElement = doc.createElement(GenAdeFilesSintetica.NUM_TOT_DISTINTE_TAG);
             numTotDistinteElement.appendChild(doc.createTextNode(numTotDistinte.toString()));
             rootElement.appendChild(numTotDistinteElement);
 
             // num tot documenti
-            
             Element numTotDocumentiElement;
             numTotDocumentiElement = doc.createElement(GenAdeFilesSintetica.NUM_TOT_DOCUMENTI_TAG);
             numTotDocumentiElement.appendChild(doc.createTextNode(numTotDocumenti.toString()));
             rootElement.appendChild(numTotDocumentiElement);
-            
+
             // flag picco
-            
             Element flagPiccoElement;
             flagPiccoElement = doc.createElement(GenAdeFilesSintetica.FLAG_PICCO_TAG);
             flagPiccoElement.appendChild(doc.createTextNode(flagPicco));
             rootElement.appendChild(flagPiccoElement);
-            
+
             // codice recapitista
-            
             Element codiceRecapitistaElement;
             codiceRecapitistaElement = doc.createElement(GenAdeFilesSintetica.CODICE_RECAPITISTA_TAG);
             codiceRecapitistaElement.appendChild(doc.createTextNode(codiceRecapitista));
             rootElement.appendChild(codiceRecapitistaElement);
-                        
+
             // codice stampatore
-            
             Element codiceStampatoreElement;
             codiceStampatoreElement = doc.createElement(GenAdeFilesSintetica.CODICE_STAMPATORE_TAG);
             codiceStampatoreElement.appendChild(doc.createTextNode(codiceStampatore));
             rootElement.appendChild(codiceStampatoreElement);
-            
+
             // data spedizione
-            
             Element dataSpedizioneElement;
             dataSpedizioneElement = doc.createElement(GenAdeFilesSintetica.DATA_SPEDIZIONE_TAG);
             dataSpedizioneElement.appendChild(doc.createTextNode(dataSpedizione));
             rootElement.appendChild(dataSpedizioneElement);
-            
+
             // codice prenotazione
-            
             Element codicePrenotazioneElement;
             codicePrenotazioneElement = doc.createElement(GenAdeFilesSintetica.CODICE_PRENOTAZIONE_TAG);
             codicePrenotazioneElement.appendChild(doc.createTextNode(codicePrenotazione));
             rootElement.appendChild(codicePrenotazioneElement);
-            
+
             // note
-            
             Element noteElement;
             noteElement = doc.createElement(GenAdeFilesSintetica.NOTE_TAG);
             noteElement.appendChild(doc.createTextNode(note));
             rootElement.appendChild(noteElement);
-            
+
+            // sezione distinte            
+            // distinte
+            Element distinteElement;
+            distinteElement = doc.createElement(GenAdeFilesSintetica.DISTINTE_TAG);
+            headerTypeElement.appendChild(distinteElement);
+
+            for (int ndist = 0; ndist < numDistinte; ndist++) {
+
+                // distinta type
+                Element distintaTypeElement;
+                distintaTypeElement = doc.createElement(GenAdeFilesSintetica.DISTINTA_TYPE_TAG);
+                distinteElement.appendChild(distintaTypeElement);
+
+                // note
+                Element idDistintaElement;
+                idDistintaElement = doc.createElement(GenAdeFilesSintetica.ID_DISTINTA_TAG);
+                idDistintaElement.appendChild(doc.createTextNode("0001"));
+                distintaTypeElement.appendChild(idDistintaElement);
+
+            } // distinte type
+
             // write the content into xml file
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
             Transformer transformer = transformerFactory.newTransformer();
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
             transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
             DOMSource source = new DOMSource(doc);
-            StreamResult result = new StreamResult(new File(destinationPath+"/"+fileNameSintetica));
+            StreamResult result = new StreamResult(new File(destinationPath + "/" + fileNameSintetica));
 
             // Output to console for testing
             // StreamResult result = new StreamResult(System.out);
             transformer.transform(source, result);
-
-            System.out.println("File saved!");
 
         } // try
         catch (ParserConfigurationException | TransformerException pce) {
@@ -423,6 +484,7 @@ public class GenAdeFilesSintetica extends GenAdeFiles {
         else {
             logger.debug("file_name_sintetica: \"" + fileNameSintetica + "\"");
             logger.debug("destination_path: \"" + destinationPath + "\"");
+            logger.debug("num_distinte: \"" + numDistinte + "\"");
             logger.debug("NOME_FLUSSO: \"" + nomeFlusso + "\"");
             logger.debug("ID_FLUSSO: \"" + idFlusso + "\"");
             logger.debug("NOME_FLUSSO: \"" + nomeFlusso + "\"");
@@ -436,18 +498,18 @@ public class GenAdeFilesSintetica extends GenAdeFiles {
             logger.debug("RESPONSABILE_NOMINATIVO: \"" + responsabileNominativo + "\"");
             logger.debug("RESPONSABILE_TELEFONO: \"" + responsabileTelefono + "\"");
             logger.debug("RESPONSABILE_EMAIL: \"" + responsabileEmail + "\"");
-            logger.debug("MORE_INFO: \"" + moreInfo + "\"");            
-            logger.debug("NUMERO_ORDINE: \"" + numeroOrdine + "\"");           
-            logger.debug("DATA_ORDINE: \"" + dataOrdine + "\"");           
-            logger.debug("NUM_TOT_DISTINTE: \"" + numTotDistinte.toString() + "\"");           
-            logger.debug("NUM_TOT_DOCUMENTI: \"" + numTotDocumenti.toString() + "\"");           
-            logger.debug("FLAG_PICCO: \"" + flagPicco + "\"");           
-            logger.debug("CODICE_RECAPITISTA: \"" + codiceRecapitista + "\"");           
-            logger.debug("CODICE_STAMPATORE: \"" + codiceStampatore + "\"");           
-            logger.debug("DATA_SPEDIZIONE: \"" + dataSpedizione + "\"");  
-            logger.debug("CODICE_PRENOTAZIONE: \"" + codicePrenotazione + "\"");  
-            logger.debug("NOTE: \"" + note + "\"");  
-                        
+            logger.debug("MORE_INFO: \"" + moreInfo + "\"");
+            logger.debug("NUMERO_ORDINE: \"" + numeroOrdine + "\"");
+            logger.debug("DATA_ORDINE: \"" + dataOrdine + "\"");
+            logger.debug("NUM_TOT_DISTINTE: \"" + numTotDistinte.toString() + "\"");
+            logger.debug("NUM_TOT_DOCUMENTI: \"" + numTotDocumenti.toString() + "\"");
+            logger.debug("FLAG_PICCO: \"" + flagPicco + "\"");
+            logger.debug("CODICE_RECAPITISTA: \"" + codiceRecapitista + "\"");
+            logger.debug("CODICE_STAMPATORE: \"" + codiceStampatore + "\"");
+            logger.debug("DATA_SPEDIZIONE: \"" + dataSpedizione + "\"");
+            logger.debug("CODICE_PRENOTAZIONE: \"" + codicePrenotazione + "\"");
+            logger.debug("NOTE: \"" + note + "\"");
+
             return;
         } // else   
     }
@@ -458,6 +520,8 @@ public class GenAdeFilesSintetica extends GenAdeFiles {
     String fileNameSintetica;
     @Value("${destination_path}")
     String destinationPath;
+    @Value("${num_distinte}")
+    Integer numDistinte;
     @Value("${ID_FLUSSO}")
     String idFlusso;
     @Value("${NOME_FLUSSO}")
