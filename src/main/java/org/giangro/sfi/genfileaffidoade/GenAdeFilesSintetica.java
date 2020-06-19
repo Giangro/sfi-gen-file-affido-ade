@@ -415,12 +415,64 @@ public class GenAdeFilesSintetica extends GenAdeFiles {
                 distintaTypeElement = doc.createElement(GenAdeFilesSintetica.DISTINTA_TYPE_TAG);
                 distinteElement.appendChild(distintaTypeElement);
 
-                // note
+                // id distinta
                 Element idDistintaElement;
                 idDistintaElement = doc.createElement(GenAdeFilesSintetica.ID_DISTINTA_TAG);
-                idDistintaElement.appendChild(doc.createTextNode("0001"));
+                idDistintaElement.appendChild(doc.createTextNode(String.valueOf(startIdDistinte + ndist)));
                 distintaTypeElement.appendChild(idDistintaElement);
 
+                // tipo distinta
+                Element tipoDistintaElement;
+                tipoDistintaElement = doc.createElement(GenAdeFilesSintetica.TIPO_DISTINTA_TAG);
+                tipoDistintaElement.appendChild(doc.createTextNode(tipoDistinta));
+                distintaTypeElement.appendChild(tipoDistintaElement);
+
+                // luogo consegna
+                Element luogoConsegnaElement;
+                luogoConsegnaElement = doc.createElement(GenAdeFilesSintetica.LUOGO_CONSEGNA_TAG);
+                luogoConsegnaElement.appendChild(doc.createTextNode(luogoConsegna));
+                distintaTypeElement.appendChild(luogoConsegnaElement);
+
+                // codice ipa cdc
+                Element codiceIpaCdcElement;
+                codiceIpaCdcElement = doc.createElement(GenAdeFilesSintetica.CODICE_IPA_CDC_TAG);
+                codiceIpaCdcElement.appendChild(doc.createTextNode(codiceIpaCdc));
+                distintaTypeElement.appendChild(codiceIpaCdcElement);
+
+                // denominazione cdc
+                Element denominazioneCdcElement;
+                denominazioneCdcElement = doc.createElement(GenAdeFilesSintetica.DENOMINAZIONE_CDC_TAG);
+                denominazioneCdcElement.appendChild(doc.createTextNode(denominazioneCdc));
+                distintaTypeElement.appendChild(denominazioneCdcElement);
+
+                // codice ambito
+                Element codiceAmbitoElement;
+                codiceAmbitoElement = doc.createElement(GenAdeFilesSintetica.CODICE_AMBITO_TAG);
+                codiceAmbitoElement.appendChild(doc.createTextNode(codiceAmbito));
+                distintaTypeElement.appendChild(codiceAmbitoElement);
+
+                // tipo modello
+                Element tipoModelloElement;
+                tipoModelloElement = doc.createElement(GenAdeFilesSintetica.TIPO_MODELLO_TAG);
+                tipoModelloElement.appendChild(doc.createTextNode(tipoModello));
+                distintaTypeElement.appendChild(tipoModelloElement);
+                
+                // indirizzo ritorno
+                Element indirizzoRitornoElement;
+                indirizzoRitornoElement = doc.createElement(GenAdeFilesSintetica.INDIRIZZO_RITORNO_TAG);
+                distintaTypeElement.appendChild(indirizzoRitornoElement);
+                
+                // indirizzo type
+                Element indirizzoTypeElement;
+                indirizzoTypeElement = doc.createElement(GenAdeFilesSintetica.INDIRIZZO_TYPE_TAG);
+                indirizzoRitornoElement.appendChild(indirizzoTypeElement);
+
+                // RIGA1
+                Element riga1Element;
+                riga1Element = doc.createElement(GenAdeFilesSintetica.RIGA1_TAG);
+                riga1Element.appendChild(doc.createTextNode("RIGA1"));
+                indirizzoTypeElement.appendChild(riga1Element);
+                
             } // distinte type
 
             // write the content into xml file
@@ -484,6 +536,7 @@ public class GenAdeFilesSintetica extends GenAdeFiles {
         else {
             logger.debug("file_name_sintetica: \"" + fileNameSintetica + "\"");
             logger.debug("destination_path: \"" + destinationPath + "\"");
+            logger.debug("start_id_distinte: \"" + startIdDistinte + "\"");
             logger.debug("num_distinte: \"" + numDistinte + "\"");
             logger.debug("NOME_FLUSSO: \"" + nomeFlusso + "\"");
             logger.debug("ID_FLUSSO: \"" + idFlusso + "\"");
@@ -509,6 +562,12 @@ public class GenAdeFilesSintetica extends GenAdeFiles {
             logger.debug("DATA_SPEDIZIONE: \"" + dataSpedizione + "\"");
             logger.debug("CODICE_PRENOTAZIONE: \"" + codicePrenotazione + "\"");
             logger.debug("NOTE: \"" + note + "\"");
+            logger.debug("TIPO_DISTINTA: \"" + tipoDistinta + "\"");
+            logger.debug("LUOGO_CONSEGNA: \"" + luogoConsegna + "\"");
+            logger.debug("CODICE_IPA_CDC: \"" + codiceIpaCdc + "\"");
+            logger.debug("DENOMINAZIONE_CDC: \"" + denominazioneCdc + "\"");
+            logger.debug("CODICE_AMBITO: \"" + codiceAmbito + "\"");
+            logger.debug("TIPO_MODELLO: \"" + tipoModello + "\"");
 
             return;
         } // else   
@@ -520,6 +579,8 @@ public class GenAdeFilesSintetica extends GenAdeFiles {
     String fileNameSintetica;
     @Value("${destination_path}")
     String destinationPath;
+    @Value("${start_id_distinte}")
+    Integer startIdDistinte;
     @Value("${num_distinte}")
     Integer numDistinte;
     @Value("${ID_FLUSSO}")
@@ -572,5 +633,17 @@ public class GenAdeFilesSintetica extends GenAdeFiles {
     String codicePrenotazione;
     @Value("${NOTE}")
     String note;
+    @Value("${TIPO_DISTINTA}")
+    String tipoDistinta;
+    @Value("${LUOGO_CONSEGNA}")
+    String luogoConsegna;
+    @Value("${CODICE_IPA_CDC}")
+    String codiceIpaCdc;
+    @Value("${DENOMINAZIONE_CDC}")
+    String denominazioneCdc;
+    @Value("${CODICE_AMBITO}")
+    String codiceAmbito;
+    @Value("${TIPO_MODELLO}")
+    String tipoModello;
 
 } // class GenAdeFilesDescritta
