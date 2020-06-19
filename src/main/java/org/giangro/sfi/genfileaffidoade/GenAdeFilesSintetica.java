@@ -112,6 +112,36 @@ public class GenAdeFilesSintetica extends GenAdeFiles {
     
     final static String MORE_INFO_TAG
             = "MORE_INFO";
+    
+    final static String NUMERO_ORDINE_TAG
+            = "NUMERO_ORDINE";
+    
+    final static String DATA_ORDINE_TAG
+            = "DATA_ORDINE";
+    
+    final static String NUM_TOT_DISTINTE_TAG
+            = "NUM_TOT_DISTINTE";
+    
+    final static String NUM_TOT_DOCUMENTI_TAG
+            = "NUM_TOT_DOCUMENTI";
+    
+    final static String FLAG_PICCO_TAG
+            = "FLAG_PICCO";
+    
+    final static String CODICE_RECAPITISTA_TAG
+            = "CODICE_RECAPITISTA";
+    
+    final static String CODICE_STAMPATORE_TAG
+            = "CODICE_STAMPATORE";
+    
+    final static String DATA_SPEDIZIONE_TAG
+            = "DATA_SPEDIZIONE";
+    
+    final static String CODICE_PRENOTAZIONE_TAG
+            = "CODICE_PRENOTAZIONE";
+    
+    final static String NOTE_TAG
+            = "NOTE";
         
     @PostConstruct
     void init() {
@@ -223,9 +253,112 @@ public class GenAdeFilesSintetica extends GenAdeFiles {
             
             Element responsabileTypeElement;
             responsabileTypeElement = doc.createElement(GenAdeFilesSintetica.RESPONSABILE_TYPE_TAG);            
-            headerTypeElement.appendChild(responsabileTypeElement);
+            responsabileElement.appendChild(responsabileTypeElement);
             
+            // responsabile nominativo
             
+            Element responsabileNominativoElement;
+            responsabileNominativoElement = doc.createElement(GenAdeFilesSintetica.NOMINATIVO_TAG);
+            responsabileNominativoElement.appendChild(doc.createTextNode(responsabileNominativo));
+            responsabileTypeElement.appendChild(responsabileNominativoElement);
+            
+            // responsabile telefono
+            
+            Element responsabileTelefonoElement;
+            responsabileTelefonoElement = doc.createElement(GenAdeFilesSintetica.TELEFONO_TAG);
+            responsabileTelefonoElement.appendChild(doc.createTextNode(responsabileTelefono));
+            responsabileTypeElement.appendChild(responsabileTelefonoElement);
+
+            // responsabile cellulare
+            
+            Element responsabileCellulareElement;
+            responsabileCellulareElement = doc.createElement(GenAdeFilesSintetica.CELLULARE_TAG);
+            responsabileCellulareElement.appendChild(doc.createTextNode(responsabileCellulare));
+            responsabileTypeElement.appendChild(responsabileCellulareElement);
+
+            // responsabile email
+            
+            Element responsabileEMailElement;
+            responsabileEMailElement = doc.createElement(GenAdeFilesSintetica.EMAIL_TAG);
+            responsabileEMailElement.appendChild(doc.createTextNode(responsabileEmail));
+            responsabileTypeElement.appendChild(responsabileEMailElement);
+
+            // more info
+            
+            Element moreInfoElement;
+            moreInfoElement = doc.createElement(GenAdeFilesSintetica.MORE_INFO_TAG);
+            moreInfoElement.appendChild(doc.createTextNode(moreInfo));
+            headerTypeElement.appendChild(moreInfoElement);
+            
+            // numero ordine
+            
+            Element numeroOrdineElement;
+            numeroOrdineElement = doc.createElement(GenAdeFilesSintetica.NUMERO_ORDINE_TAG);
+            numeroOrdineElement.appendChild(doc.createTextNode(numeroOrdine));
+            rootElement.appendChild(numeroOrdineElement);
+            
+            // data ordine
+            
+            Element dataOrdineElement;
+            dataOrdineElement = doc.createElement(GenAdeFilesSintetica.DATA_ORDINE_TAG);
+            dataOrdineElement.appendChild(doc.createTextNode(dataOrdine));
+            rootElement.appendChild(dataOrdineElement);
+            
+            // num tot distinte
+            
+            Element numTotDistinteElement;
+            numTotDistinteElement = doc.createElement(GenAdeFilesSintetica.NUM_TOT_DISTINTE_TAG);
+            numTotDistinteElement.appendChild(doc.createTextNode(numTotDistinte.toString()));
+            rootElement.appendChild(numTotDistinteElement);
+
+            // num tot documenti
+            
+            Element numTotDocumentiElement;
+            numTotDocumentiElement = doc.createElement(GenAdeFilesSintetica.NUM_TOT_DOCUMENTI_TAG);
+            numTotDocumentiElement.appendChild(doc.createTextNode(numTotDocumenti.toString()));
+            rootElement.appendChild(numTotDocumentiElement);
+            
+            // flag picco
+            
+            Element flagPiccoElement;
+            flagPiccoElement = doc.createElement(GenAdeFilesSintetica.FLAG_PICCO_TAG);
+            flagPiccoElement.appendChild(doc.createTextNode(flagPicco));
+            rootElement.appendChild(flagPiccoElement);
+            
+            // codice recapitista
+            
+            Element codiceRecapitistaElement;
+            codiceRecapitistaElement = doc.createElement(GenAdeFilesSintetica.CODICE_RECAPITISTA_TAG);
+            codiceRecapitistaElement.appendChild(doc.createTextNode(codiceRecapitista));
+            rootElement.appendChild(codiceRecapitistaElement);
+                        
+            // codice stampatore
+            
+            Element codiceStampatoreElement;
+            codiceStampatoreElement = doc.createElement(GenAdeFilesSintetica.CODICE_STAMPATORE_TAG);
+            codiceStampatoreElement.appendChild(doc.createTextNode(codiceStampatore));
+            rootElement.appendChild(codiceStampatoreElement);
+            
+            // data spedizione
+            
+            Element dataSpedizioneElement;
+            dataSpedizioneElement = doc.createElement(GenAdeFilesSintetica.DATA_SPEDIZIONE_TAG);
+            dataSpedizioneElement.appendChild(doc.createTextNode(dataSpedizione));
+            rootElement.appendChild(dataSpedizioneElement);
+            
+            // codice prenotazione
+            
+            Element codicePrenotazioneElement;
+            codicePrenotazioneElement = doc.createElement(GenAdeFilesSintetica.CODICE_PRENOTAZIONE_TAG);
+            codicePrenotazioneElement.appendChild(doc.createTextNode(codicePrenotazione));
+            rootElement.appendChild(codicePrenotazioneElement);
+            
+            // note
+            
+            Element noteElement;
+            noteElement = doc.createElement(GenAdeFilesSintetica.NOTE_TAG);
+            noteElement.appendChild(doc.createTextNode(note));
+            rootElement.appendChild(noteElement);
             
             // write the content into xml file
             TransformerFactory transformerFactory = TransformerFactory.newInstance();
@@ -233,7 +366,7 @@ public class GenAdeFilesSintetica extends GenAdeFiles {
             transformer.setOutputProperty(OutputKeys.INDENT, "yes");
             transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
             DOMSource source = new DOMSource(doc);
-            StreamResult result = new StreamResult(new File(".\\file.xml"));
+            StreamResult result = new StreamResult(new File(destinationPath+"/"+fileNameSintetica));
 
             // Output to console for testing
             // StreamResult result = new StreamResult(System.out);
@@ -288,6 +421,9 @@ public class GenAdeFilesSintetica extends GenAdeFiles {
             return;
         } // if
         else {
+            logger.debug("file_name_sintetica: \"" + fileNameSintetica + "\"");
+            logger.debug("destination_path: \"" + destinationPath + "\"");
+            logger.debug("NOME_FLUSSO: \"" + nomeFlusso + "\"");
             logger.debug("ID_FLUSSO: \"" + idFlusso + "\"");
             logger.debug("NOME_FLUSSO: \"" + nomeFlusso + "\"");
             logger.debug("MITTENTE_FLUSSO: \"" + mittenteFlusso + "\"");
@@ -299,14 +435,29 @@ public class GenAdeFilesSintetica extends GenAdeFiles {
             logger.debug("NUMERO_CONTRATTO: \"" + numeroContratto + "\"");
             logger.debug("RESPONSABILE_NOMINATIVO: \"" + responsabileNominativo + "\"");
             logger.debug("RESPONSABILE_TELEFONO: \"" + responsabileTelefono + "\"");
-            logger.debug("RESPONSABILE_EMAIL: \"" + responsabileEmail + "\"");            
-            
+            logger.debug("RESPONSABILE_EMAIL: \"" + responsabileEmail + "\"");
+            logger.debug("MORE_INFO: \"" + moreInfo + "\"");            
+            logger.debug("NUMERO_ORDINE: \"" + numeroOrdine + "\"");           
+            logger.debug("DATA_ORDINE: \"" + dataOrdine + "\"");           
+            logger.debug("NUM_TOT_DISTINTE: \"" + numTotDistinte.toString() + "\"");           
+            logger.debug("NUM_TOT_DOCUMENTI: \"" + numTotDocumenti.toString() + "\"");           
+            logger.debug("FLAG_PICCO: \"" + flagPicco + "\"");           
+            logger.debug("CODICE_RECAPITISTA: \"" + codiceRecapitista + "\"");           
+            logger.debug("CODICE_STAMPATORE: \"" + codiceStampatore + "\"");           
+            logger.debug("DATA_SPEDIZIONE: \"" + dataSpedizione + "\"");  
+            logger.debug("CODICE_PRENOTAZIONE: \"" + codicePrenotazione + "\"");  
+            logger.debug("NOTE: \"" + note + "\"");  
+                        
             return;
         } // else   
     }
 
     @Value("${log_conf_params}")
     Boolean logConfParams;
+    @Value("${file_name_sintetica}")
+    String fileNameSintetica;
+    @Value("${destination_path}")
+    String destinationPath;
     @Value("${ID_FLUSSO}")
     String idFlusso;
     @Value("${NOME_FLUSSO}")
@@ -335,5 +486,27 @@ public class GenAdeFilesSintetica extends GenAdeFiles {
     String responsabileCellulare;
     @Value("${RESPONSABILE_EMAIL}")
     String responsabileEmail;
+    @Value("${MORE_INFO}")
+    String moreInfo;
+    @Value("${NUMERO_ORDINE}")
+    String numeroOrdine;
+    @Value("${DATA_ORDINE}")
+    String dataOrdine;
+    @Value("${NUM_TOT_DISTINTE}")
+    Integer numTotDistinte;
+    @Value("${NUM_TOT_DOCUMENTI}")
+    Integer numTotDocumenti;
+    @Value("${FLAG_PICCO}")
+    String flagPicco;
+    @Value("${CODICE_RECAPITISTA}")
+    String codiceRecapitista;
+    @Value("${CODICE_STAMPATORE}")
+    String codiceStampatore;
+    @Value("${DATA_SPEDIZIONE}")
+    String dataSpedizione;
+    @Value("${CODICE_PRENOTAZIONE}")
+    String codicePrenotazione;
+    @Value("${NOTE}")
+    String note;
 
 } // class GenAdeFilesDescritta
