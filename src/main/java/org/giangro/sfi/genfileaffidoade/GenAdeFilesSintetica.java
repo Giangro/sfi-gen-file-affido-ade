@@ -456,12 +456,12 @@ public class GenAdeFilesSintetica extends GenAdeFiles {
                 tipoModelloElement = doc.createElement(GenAdeFilesSintetica.TIPO_MODELLO_TAG);
                 tipoModelloElement.appendChild(doc.createTextNode(tipoModello));
                 distintaTypeElement.appendChild(tipoModelloElement);
-                
+
                 // indirizzo ritorno
                 Element indirizzoRitornoElement;
                 indirizzoRitornoElement = doc.createElement(GenAdeFilesSintetica.INDIRIZZO_RITORNO_TAG);
                 distintaTypeElement.appendChild(indirizzoRitornoElement);
-                
+
                 // indirizzo type
                 Element indirizzoTypeElement;
                 indirizzoTypeElement = doc.createElement(GenAdeFilesSintetica.INDIRIZZO_TYPE_TAG);
@@ -470,8 +470,82 @@ public class GenAdeFilesSintetica extends GenAdeFiles {
                 // RIGA1
                 Element riga1Element;
                 riga1Element = doc.createElement(GenAdeFilesSintetica.RIGA1_TAG);
-                riga1Element.appendChild(doc.createTextNode("RIGA1"));
+                riga1Element.appendChild(doc.createTextNode(riga1));
                 indirizzoTypeElement.appendChild(riga1Element);
+
+                // RIGA2
+                Element riga2Element;
+                riga2Element = doc.createElement(GenAdeFilesSintetica.RIGA2_TAG);
+                riga2Element.appendChild(doc.createTextNode(riga2));
+                indirizzoTypeElement.appendChild(riga2Element);
+
+                // RIGA3
+                Element riga3Element;
+                riga3Element = doc.createElement(GenAdeFilesSintetica.RIGA3_TAG);
+                riga3Element.appendChild(doc.createTextNode(riga3));
+                indirizzoTypeElement.appendChild(riga3Element);
+
+                // RIGA4
+                Element riga4Element;
+                riga4Element = doc.createElement(GenAdeFilesSintetica.RIGA4_TAG);
+                riga4Element.appendChild(doc.createTextNode(riga4));
+                indirizzoTypeElement.appendChild(riga4Element);
+
+                // RIGA5
+                Element riga5Element;
+                riga5Element = doc.createElement(GenAdeFilesSintetica.RIGA5_TAG);
+                riga5Element.appendChild(doc.createTextNode(riga5));
+                indirizzoTypeElement.appendChild(riga5Element);
+                
+                // cap
+                Element capElement;
+                capElement = doc.createElement(GenAdeFilesSintetica.CAP_TAG);
+                capElement.appendChild(doc.createTextNode(cap));
+                indirizzoTypeElement.appendChild(capElement);
+                
+                // stato estero
+                Element statoEsteroElement;
+                statoEsteroElement = doc.createElement(GenAdeFilesSintetica.STATO_ESTERO_TAG);
+                statoEsteroElement.appendChild(doc.createTextNode(statoEstero));
+                indirizzoTypeElement.appendChild(statoEsteroElement);
+
+                // tipo spedizione
+                Element tipoSpedizioneElement;
+                tipoSpedizioneElement = doc.createElement(GenAdeFilesSintetica.TIPO_SPEDIZIONE_TAG);
+                tipoSpedizioneElement.appendChild(doc.createTextNode(tipoSpedizione));
+                distintaTypeElement.appendChild(tipoSpedizioneElement);
+                
+                // codice prodotto fornitore
+                Element codiceProdottoFornitoreElement;
+                codiceProdottoFornitoreElement = doc.createElement(GenAdeFilesSintetica.CODICE_PRODOTTO_FORNITORE_TAG);
+                codiceProdottoFornitoreElement.appendChild(doc.createTextNode(codiceProdottoFornitore));
+                distintaTypeElement.appendChild(codiceProdottoFornitoreElement);
+                
+                // codice lotto territoriale
+                Element codiceLottoTerritorialeElement;
+                codiceLottoTerritorialeElement = doc.createElement(GenAdeFilesSintetica.CODICE_LOTTO_TERRITORIALE_TAG);
+                codiceLottoTerritorialeElement.appendChild(doc.createTextNode(codiceLottoTerritoriale));
+                distintaTypeElement.appendChild(codiceLottoTerritorialeElement);
+                
+                // num documenti distinta
+                Element numDocumentiDistintaElement;
+                numDocumentiDistintaElement = doc.createElement(GenAdeFilesSintetica.NUM_DOCUMENTI_DISTINTA_TAG);
+                numDocumentiDistintaElement.appendChild(doc.createTextNode(numDocumentiDistinta.toString()));
+                distintaTypeElement.appendChild(numDocumentiDistintaElement);
+                
+                // flag copertura cap
+                Element flagCoperturaCapElement;
+                flagCoperturaCapElement = doc.createElement(GenAdeFilesSintetica.FLAG_COPERTURA_CAP_TAG);
+                flagCoperturaCapElement.appendChild(doc.createTextNode(flagCoperturaCap));
+                distintaTypeElement.appendChild(flagCoperturaCapElement);
+
+                // more info distinta type
+                Element moreInfoDistintaTypeElement;
+                moreInfoDistintaTypeElement = doc.createElement(GenAdeFilesSintetica.MORE_INFO_TAG);
+                moreInfoDistintaTypeElement.appendChild(doc.createTextNode(moreInfoDistintaType));
+                distintaTypeElement.appendChild(moreInfoDistintaTypeElement);
+                
+                
                 
             } // distinte type
 
@@ -568,6 +642,18 @@ public class GenAdeFilesSintetica extends GenAdeFiles {
             logger.debug("DENOMINAZIONE_CDC: \"" + denominazioneCdc + "\"");
             logger.debug("CODICE_AMBITO: \"" + codiceAmbito + "\"");
             logger.debug("TIPO_MODELLO: \"" + tipoModello + "\"");
+            logger.debug("RIGA1: \"" + riga1 + "\"");
+            logger.debug("RIGA2: \"" + riga2 + "\"");
+            logger.debug("RIGA3: \"" + riga3 + "\"");
+            logger.debug("RIGA4: \"" + riga4 + "\"");
+            logger.debug("RIGA5: \"" + riga5 + "\"");
+            logger.debug("CAP: \"" + cap + "\"");
+            logger.debug("STATO_ESTERO: \"" + statoEstero + "\"");
+            logger.debug("TIPO_SPEDIZIONE: \"" + tipoSpedizione + "\"");
+            logger.debug("CODICE_PRODOTTO_FORNITORE: \"" + codiceProdottoFornitore + "\"");
+            logger.debug("CODICE_LOTTO_TERRITORIALE: \"" + codiceLottoTerritoriale + "\"");
+            logger.debug("NUM_DOCUMENTI_DISTINTA: \"" + numDocumentiDistinta.toString() + "\"");
+            logger.debug("FLAG_COPERTURA_CAP: \"" + flagCoperturaCap + "\"");
 
             return;
         } // else   
@@ -645,5 +731,31 @@ public class GenAdeFilesSintetica extends GenAdeFiles {
     String codiceAmbito;
     @Value("${TIPO_MODELLO}")
     String tipoModello;
-
+    @Value("${RIGA1}")
+    String riga1;
+    @Value("${RIGA2}")
+    String riga2;
+    @Value("${RIGA3}")
+    String riga3;
+    @Value("${RIGA4}")
+    String riga4;
+    @Value("${RIGA5}")
+    String riga5;
+    @Value("${CAP}")
+    String cap;
+    @Value("${STATO_ESTERO}")
+    String statoEstero;
+    @Value("${TIPO_SPEDIZIONE}")
+    String tipoSpedizione;
+    @Value("${CODICE_PRODOTTO_FORNITORE}")
+    String codiceProdottoFornitore;
+    @Value("${CODICE_LOTTO_TERRITORIALE}")
+    String codiceLottoTerritoriale;   
+    @Value("${NUM_DOCUMENTI_DISTINTA}")
+    Integer numDocumentiDistinta; 
+    @Value("${FLAG_COPERTURA_CAP}")
+    String flagCoperturaCap;
+    @Value("${MORE_INFO_DISTINTA_TYPE}")
+    String moreInfoDistintaType;
+    
 } // class GenAdeFilesDescritta
